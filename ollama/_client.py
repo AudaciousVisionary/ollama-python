@@ -52,7 +52,7 @@ class BaseClient:
     headers['User-Agent'] = f'ollama-python/{__version__} ({platform.machine()} {platform.system().lower()}) Python/{platform.python_version()}'
 
     self._client = client(
-      base_url=_parse_host(host or os.getenv('OLLAMA_HOST')),
+      base_url=os.environ["OLLAMA_HOST"],
       follow_redirects=follow_redirects,
       timeout=timeout,
       headers=headers,
